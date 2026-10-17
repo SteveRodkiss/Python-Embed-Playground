@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python Playground</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="toolbar">
+      <button id="btn-run" class="btn primary" disabled title="Run (Ctrl+Enter)">▶ Run</button>
+      <button id="btn-debug" class="btn accent" disabled title="Run step by step">🐞 Debug</button>
+      <button id="btn-stop" class="btn danger" disabled>■ Stop</button>
+      <span id="status" class="status">Loading Python…</span>
+      <span class="spacer"></span>
+      <button id="btn-font-down" class="btn small" title="Smaller text">A−</button>
+      <button id="btn-font-up" class="btn small" title="Bigger text">A+</button>
+      <button id="btn-theme" class="btn small" title="Switch light/dark">🌓</button>
+    </header>
+
+    <main class="workspace">
+      <section class="pane editor-pane">
+        <div id="editor"></div>
+      </section>
+
+      <section class="pane bottom-pane">
+        <nav class="tabs" role="tablist">
+          <button id="tab-output" class="tab active" role="tab">Output</button>
+          <button id="tab-debugger" class="tab" role="tab">Debugger</button>
+          <span class="spacer"></span>
+          <button id="btn-clear" class="btn small">Clear</button>
+        </nav>
+
+        <div id="panel-output" class="panel">
+          <div id="terminal" class="terminal" tabindex="0"></div>
+        </div>
+
+        <div id="panel-debugger" class="panel hidden">
+          <div class="dbg-controls">
+            <button id="dbg-first" class="btn small" title="First step">⏮</button>
+            <button id="dbg-back" class="btn small" title="Step back">◀ Back</button>
+            <button id="dbg-next" class="btn small primary" title="Step forward">Step ▶</button>
+            <button id="dbg-last" class="btn small" title="Last step">⏭</button>
+            <button id="dbg-play" class="btn small" title="Play automatically">▶▶ Auto</button>
+            <input id="dbg-slider" type="range" min="0" max="0" value="0" aria-label="Step">
+            <span id="dbg-count" class="dbg-count">–</span>
+          </div>
+          <div class="dbg-body">
+            <div class="dbg-col">
+              <h3>Variables</h3>
+              <div id="dbg-vars" class="dbg-vars"></div>
+            </div>
+            <div class="dbg-col">
+              <h3>Next line to run</h3>
+              <div id="dbg-next-line" class="dbg-next-line"></div>
+              <h3>Output so far</h3>
+              <pre id="dbg-output" class="dbg-output"></pre>
+            </div>
+          </div>
+          <div id="dbg-empty" class="dbg-empty">Press <b>🐞 Debug</b> to run your code step by step.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
